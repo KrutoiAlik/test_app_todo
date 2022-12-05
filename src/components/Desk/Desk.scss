@@ -1,0 +1,20 @@
+@import '../../scss/vars';
+
+.desk {
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  min-height: 100px;
+  padding: 20px;
+  transition: background-color 0.5s;
+  font-family: $font-family;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.desk:hover {
+  background: #d9f5f5;
+}

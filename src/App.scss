@@ -1,0 +1,48 @@
+@import "scss/vars";
+
+body, h3, ul {
+  margin: 0;
+  padding: 0;
+}
+
+.routes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  opacity: 0.9;
+  color: white;
+  font-family: $font-family;
+  padding: 5px;
+}
+
+.nav h3 {
+  margin: 0;
+}
+
+.nav ul {
+  padding: 10px;
+}
+
+.nav li {
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
