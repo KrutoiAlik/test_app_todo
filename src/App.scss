@@ -1,9 +1,5 @@
+@use "scss/generalStyles";
 @import "scss/vars";
-
-body, h3, ul {
-  margin: 0;
-  padding: 0;
-}
 
 .routes {
   display: flex;
@@ -23,21 +19,23 @@ body, h3, ul {
   padding: 5px;
 }
 
-.nav h3 {
-  margin: 0;
-}
+.nav {
+  h3 {
+    margin: 0;
+  }
 
-.nav ul {
-  padding: 10px;
-}
+  ul {
+    padding: 10px;
+  }
 
-.nav li {
-  list-style: none;
-}
+  li {
+    list-style: none;
+  }
 
-.nav a {
-  text-decoration: none;
-  color: white;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .logo__container {

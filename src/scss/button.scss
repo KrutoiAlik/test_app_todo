@@ -1,0 +1,21 @@
+$border-radius: 2px;
+
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn.submit {
+  background: #b4d4ff;
+}
+
+.btn.submit:hover {
+  background: #98baf3;
+}
+
+.btn.close {
+  background: #e8e8e8;
+}

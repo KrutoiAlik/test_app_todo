@@ -1,7 +1,8 @@
-@import url('vars.scss');
-
-body {
+body, ul, h3 {
   padding: 0;
   margin: 0;
-  font-family: $font-family;
+}
+
+input:focus {
+  outline: none;
 }

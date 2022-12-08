@@ -1,0 +1,12 @@
+@use "./src/scss/modal";
+
+.form {
+  fieldset {
+    padding: 0;
+    border: none;
+  }
+
+  input {
+    width: 100%;
+  }
+}
