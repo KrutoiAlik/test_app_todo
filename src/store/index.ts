@@ -1,12 +1,15 @@
-import {configureStore} from "@reduxjs/toolkit";
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import deskReducer from './slices/deskSlice';
+import taskReducer from './slices/taskSlice';
 
 const initState = loadStore();
+
 const store = configureStore({
     preloadedState: initState,
-    reducer: {
-        desks: deskReducer
-    },
+    reducer: combineReducers({
+        desks: deskReducer,
+        tasks: taskReducer
+    }),
 })
 
 store.subscribe(() => {
@@ -23,17 +26,7 @@ function loadStore() {
     const state = localStorage.getItem('state') || "";
 
     if (!state) {
-        const defaultStore = {
-            desks: {
-                desks: [{
-                    id: '1',
-                    title: 'Desk 1',
-                    tasks: []
-                }]
-            }
-        }
-        localStorage.setItem('state', JSON.stringify(defaultStore));
-        return defaultStore;
+        return {};
     }
 
     return JSON.parse(state);

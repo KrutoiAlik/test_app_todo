@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FormEvent, FunctionComponent, useState} from 'react';
-import {Task} from "../../store/slices/deskSlice";
 import './TaskModal.scoped.scss';
+import {Task} from "../../types/Task";
 
 type AddTaskModalProps = {
     task: Task,
@@ -9,11 +9,7 @@ type AddTaskModalProps = {
 }
 export const TaskModal: FunctionComponent<AddTaskModalProps> = (props) => {
 
-    const [task, setTask] = useState<Task>({
-        id: props.task?.id || '',
-        title: props.task?.title || '',
-        status: props.task.status
-    });
+    const [task, setTask] = useState<Task>(props.task);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>, fieldName: string) => {
         setTask(prevState => ({...prevState, [fieldName]: e.target.value}))

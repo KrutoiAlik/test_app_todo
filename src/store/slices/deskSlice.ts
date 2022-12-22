@@ -1,50 +1,16 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createEntityAdapter, createSlice} from "@reduxjs/toolkit";
+import {Desk} from "../../types/Desk";
 
-export type Task = {
-    id: string,
-    title: string,
-    status: string
-}
-
-export type Desk = {
-    id: string,
-    title: string,
-    tasks: Task[]
-}
-
-type DeskState = {
-    desks: Desk[]
-}
-
-const initialState: DeskState = {
-    desks: []
-}
-
+export const deskAdapter = createEntityAdapter<Desk>();
 const deskSlice = createSlice({
     name: 'desks',
-    initialState,
+    initialState: deskAdapter.getInitialState(),
     reducers: {
-        addDesk(state, action: PayloadAction<string>) {
-            state.desks.push({
-                id: (state.desks.length + 1) + '',
-                title: action.payload,
-                tasks: []
-            });
-        },
-        removeDesk(state, action: PayloadAction<string>) {
-            state.desks = state.desks.filter(desk => desk.id !== action.payload);
-        },
-        updateTasks(state, action: PayloadAction<Desk>) {
-            const selectedDesk = state.desks.find(desk => desk.id === action.payload.id);
-            if (!selectedDesk) {
-                throw new Error('Failed to find a desk with Id: ' + action.payload.id)
-            }
-
-            selectedDesk.tasks = action.payload.tasks;
-        }
+        addDesk: deskAdapter.addOne,
+        updateDesk: deskAdapter.updateOne,
+        removeDesk: deskAdapter.removeOne
     }
 });
 
-export const {addDesk, removeDesk, updateTasks} = deskSlice.actions;
-
+export const {addDesk, updateDesk, removeDesk} = deskSlice.actions;
 export default deskSlice.reducer;
