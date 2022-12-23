@@ -17,8 +17,6 @@ const taskSelectors = taskAdapter.getSelectors<RootState>(state => state.tasks)
 
 export const DeskPage: FunctionComponent = () => {
 
-    // For refresh the page
-    useAppSelector(state => state.tasks)
     const dispatch = useAppDispatch();
 
     const {id} = useParams();
@@ -43,8 +41,7 @@ export const DeskPage: FunctionComponent = () => {
         throw Error('Failed to select a desk from the store');
     }
 
-    const tasks: Task[] = taskSelectors.selectAll(store.getState())
-        .filter(task => task && desk.taskIds.includes(task.id));
+    const tasks: Task[] = useAppSelector(taskSelectors.selectAll).filter(task => task && desk.taskIds.includes(task.id));
 
     const tasksByStatus = getTasksByStatus(tasks);
     const nextTaskId = generateNextId();
